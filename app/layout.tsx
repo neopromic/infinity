@@ -17,16 +17,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <ThemeProvider
-        attribute="class"
-        enableSystem
-        defaultTheme="dark"
-        disableTransitionOnChange
-        storageKey="infinity-theme"
-      >
-        <body className={inter.className}>{children}</body>
-      </ThemeProvider>
+    <>
+    <html lang="en" suppressHydrationWarning>
+      <head />
+      <body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          storageKey="infinity-theme"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
+  </>
   );
 }
