@@ -1,3 +1,11 @@
+import Header from "@/components/ui/layouts/apresentation/Header";
+import { Metadata } from "next";
+
+export const metadata : Metadata = {
+  title: "Sign in into infinity",
+  description: "Sign-in into infinity-project to try our services."
+}
+
 export default function Layout({
       children,
     }: {
@@ -5,7 +13,7 @@ export default function Layout({
     }) {
       return (
         <section>
-          <nav></nav>
+          <Header />
           {children}
         </section>
       );

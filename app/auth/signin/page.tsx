@@ -1,3 +1,7 @@
+import { TypographyH1 } from "@/components/ui/typography/Heading1";
+
 export default function Page() {
-  return <h1>Hello, Next.js!</h1>;
+  return (
+    <TypographyH1 text={"Hello, world"} />
+  );
 }
