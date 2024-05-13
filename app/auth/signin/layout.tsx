@@ -1,4 +1,4 @@
-import Header from "@/components/ui/layouts/apresentation/Header";
+import Header from "@/components/ui/layouts/Header";
 import { Metadata } from "next";
 
 export const metadata : Metadata = {
@@ -13,7 +13,7 @@ export default function Layout({
     }) {
       return (
         <section>
-          <Header />
+      
           {children}
         </section>
       );
