@@ -21,7 +21,7 @@ import Link from "next/link";
 import { CardContent, Card } from "@/components/ui/card";
 import { ResponsiveLine } from "@nivo/line";
 
-export function Home() {
+export function HomeContent() {
   return (
     <main className="flex flex-col">
       <section className="w-full py-12 md:py-24 lg:py-32">
