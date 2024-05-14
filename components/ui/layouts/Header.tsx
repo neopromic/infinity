@@ -1,6 +1,6 @@
-"use client";
 
 import { ModeToggle } from "@/components/ui/mode-toggle";
+import Logo from "@/components/ui/Icons/logo";
 import Link from "next/link";
 
 export default function Header() {

@@ -1,22 +1,3 @@
-/** Add fonts into your Next.js project:
-
-import { Libre_Franklin } from 'next/font/google'
-import { Judson } from 'next/font/google'
-
-libre_franklin({
-  subsets: ['latin'],
-  display: 'swap',
-})
-
-judson({
-  subsets: ['latin'],
-  display: 'swap',
-})
-
-To read more about using these font, please visit the Next.js documentation:
-- App Directory: https://nextjs.org/docs/app/building-your-application/optimizing/fonts
-- Pages Directory: https://nextjs.org/docs/pages/building-your-application/optimizing/fonts
-**/
 import Link from "next/link";
 import { CardContent, Card } from "@/components/ui/card";
 import { Button } from "../button";
@@ -26,13 +7,13 @@ export function HomeContent() {
     <main className="flex flex-col">
       <section className="w-full py-12 md:py-24 lg:py-32">
         <div className="container grid items-center gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
-           <img
+          <img
             alt="Hero"
             className="mx-auto aspect-square overflow-hidden rounded-xl object-cover sm:w-full lg:order-last"
             height="550"
             src="/oplaceholder.svg"
             width="550"
-          /> 
+          />
           <div className="flex flex-col justify-center space-y-4">
             <div className="space-y-2">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-6xl/none">
@@ -76,7 +57,7 @@ export function HomeContent() {
               />
               <CardContent className="space-y-2 p-4">
                 <h3 className="text-lg font-semibold">Full Body Workout</h3>
-                <p className="text-gray-500 dark:text-gray-400">
+                <p className="text-muted-foreground">
                   A comprehensive routine targeting all major muscle groups.
                 </p>
               </CardContent>
@@ -91,7 +72,7 @@ export function HomeContent() {
               />
               <CardContent className="space-y-2 p-4">
                 <h3 className="text-lg font-semibold">Cardio Blast</h3>
-                <p className="text-gray-500 dark:text-gray-400">
+                <p className="text-muted-foreground">
                   High-intensity interval training to boost your endurance.
                 </p>
               </CardContent>
@@ -106,7 +87,7 @@ export function HomeContent() {
               />
               <CardContent className="space-y-2 p-4">
                 <h3 className="text-lg font-semibold">Strength Training</h3>
-                <p className="text-gray-500 dark:text-gray-400">
+                <p className="text-muted-foreground">
                   Build muscle and improve overall strength.
                 </p>
               </CardContent>
@@ -120,7 +101,7 @@ export function HomeContent() {
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
               Track Your Progress
             </h2>
-            <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+            <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
               Stay motivated and on top of your fitness journey with our
               intuitive workout calendar.
             </p>
