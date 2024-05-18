@@ -5,11 +5,11 @@ export default function Page() {
   return (
     <main className="px-6">
       <section className="py-6">
-        <h2 className="text-3xl pb-4 font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-6xl/none">
+        <h2 className="text-3xl pt-12  pb-4 font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-6xl/none">
           Rotinas gerais
         </h2>
         <p>
-          <b>Segunda-feira</b>
+          <b>Segunda-feira - Peito, tríceps</b>
           <ul className="px-4 space-y-2">
             <li className="list-disc">
               Inicie com alogamentos de todo o corpo, após isso faça 2min{" "}
@@ -29,6 +29,17 @@ export default function Page() {
               5min de cárdio de sua preferẽncia.{" "}
               <b>Exemplo: Polichinelos, corrida parada, etc. </b>
             </li>
+          </ul>
+        </p>
+        <p className="mt-4">
+          <b>Terça-feira - Pernas, e abdômen</b>
+          <ul className="px-4 pt-4 space-y-2">
+          <li className="list-disc">
+              Inicie com alogamentos de todo o corpo, após isso faça 2min{" "}
+              <b>(menos ou mais, dependendo de suas capacidades físicas)</b>.
+            </li>
+            <li className="list-disc">Agachamento - 4 séries de 20 repetições</li>
+            <li className="list-disc">Abdominal curto  - 4 séries de 15 repetições</li>
           </ul>
         </p>
       </section>
@@ -52,7 +63,9 @@ export default function Page() {
             width="0"
           />
           <CardContent className="space-y-2 p-4">
-            <h3 className="text-lg font-semibold">Desafio: Rotina do Saitama!</h3>
+            <h3 className="text-lg font-semibold">
+              Desafio: Rotina do Saitama!
+            </h3>
             <p className="text-muted-foreground">
               Se desafie! Tente a rotina de treino do saitama.
             </p>
