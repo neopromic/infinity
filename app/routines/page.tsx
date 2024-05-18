@@ -12,7 +12,8 @@ export default function Page() {
           <b>Segunda-feira - Peito, tríceps</b>
           <ul className="px-4 space-y-2">
             <li className="list-disc">
-              Inicie com alogamentos de todo o corpo, após isso faça 2min{" "}
+              Inicie com alogamentos de todo o corpo, após isso faça 2min de
+              prancha{" "}
               <b>(menos ou mais, dependendo de suas capacidades físicas)</b>.
             </li>
             <li className="list-disc">
@@ -34,12 +35,118 @@ export default function Page() {
         <p className="mt-4">
           <b>Terça-feira - Pernas, e abdômen</b>
           <ul className="px-4 pt-4 space-y-2">
-          <li className="list-disc">
-              Inicie com alogamentos de todo o corpo, após isso faça 2min{" "}
+            <li className="list-disc">
+              Inicie com alogamentos de todo o corpo, após isso faça 2min de
+              prancha{" "}
               <b>(menos ou mais, dependendo de suas capacidades físicas)</b>.
             </li>
-            <li className="list-disc">Agachamento - 4 séries de 20 repetições</li>
-            <li className="list-disc">Abdominal curto  - 4 séries de 15 repetições</li>
+            <li className="list-disc">
+              Elevação de penas na barra-fixa - 4 séries de 10 repetições
+            </li>
+            <li className="list-disc">
+              Agachamento - 4 séries de 20 repetições
+            </li>
+            <li className="list-disc">
+              Abdominal curto - 4 séries de 15 repetições
+            </li>
+            <li className="list-disc">
+              Calf Raises - 4 séries de 30 repetições
+            </li>
+            <li className="list-disc">
+              Agachamentos com salto - 4 séries de 15 repetições
+            </li>
+            <li className="list-disc">
+              5min de cárdio de sua preferẽncia.{" "}
+              <b>Exemplo: Polichinelos, corrida parada, etc. </b>
+            </li>
+          </ul>
+        </p>
+        <p className="mt-4">
+          <b>Quarta-feira - Costas, ombros</b>
+          <ul className="px-4 pt-4 space-y-2">
+            <li className="list-disc">
+              Inicie com alogamentos de todo o corpo, após isso faça 2min de
+              prancha{" "}
+              <b>(menos ou mais, dependendo de suas capacidades físicas)</b>.
+            </li>
+            <li className="list-disc">
+              Barra-fixa - 4 séries de 10 repetições
+            </li>
+            <li className="list-disc">
+              Puxada com barra - 4 séries até a falha
+            </li>
+            <li className="list-disc">
+              Flxão Pike - 4 séries de 12 repetições
+            </li>
+            <li className="list-disc">
+              Elevação unilateral - 4 séries de 25 repetições
+            </li>
+            <li className="list-disc">
+              5min de cárdio de sua preferẽncia.{" "}
+              <b>Exemplo: Polichinelos, corrida parada, etc. </b>
+            </li>
+          </ul>
+        </p>
+        <p className="mt-4">
+          <b>Quinta-feira - Pernas, e abdômen</b>
+          <ul className="px-4 pt-4 space-y-2">
+            <li className="list-disc">
+              Inicie com alogamentos de todo o corpo, após isso faça 2min de
+              prancha{" "}
+              <b>(menos ou mais, dependendo de suas capacidades físicas)</b>.
+            </li>
+            <li className="list-disc">
+              Elevação de penas na barra-fixa - 4 séries de 10 repetições
+            </li>
+            <li className="list-disc">
+              Agachamento - 4 séries de 20 repetições
+            </li>
+            <li className="list-disc">
+              Abdominal curto - 4 séries de 15 repetições
+            </li>
+            <li className="list-disc">
+              Calf Raises - 4 séries de 30 repetições
+            </li>
+            <li className="list-disc">
+              Agachamentos com salto - 4 séries de 15 repetições
+            </li>
+            <li className="list-disc">
+              5min de cárdio de sua preferẽncia.{" "}
+              <b>Exemplo: Polichinelos, corrida parada, etc. </b>
+            </li>
+          </ul>
+        </p>
+        <p className="mt-4">
+          <b>Sexta-feira - Peito, tríceps</b>
+          <ul className="px-4 space-y-2">
+            <li className="list-disc">
+              Inicie com alogamentos de todo o corpo, após isso faça 2min de
+              prancha{" "}
+              <b>(menos ou mais, dependendo de suas capacidades físicas)</b>.
+            </li>
+            <li className="list-disc">
+              Flexão militar - 4 séries de 15 repetições.
+            </li>
+            <li className="list-disc">
+              Flexão diamante - 4 séries de 10 repetições.
+            </li>
+            <li className="list-disc">Dips - 4 séries de 10 repetições.</li>
+            <li className="list-disc">
+              Tríceps na cadeira - 4 séries de 10 repetições.
+            </li>
+            <li className="list-disc">
+              5min de cárdio de sua preferẽncia.{" "}
+              <b>Exemplo: Polichinelos, corrida parada, etc. </b>
+            </li>
+          </ul>
+        </p>
+        <p className="mt-4">
+          <b>Sábado - Treinos estáticos da calistenia</b>
+          <ul className="px-4 space-y-2">
+            <li className="list-disc">
+              Pratique qualquer movimento calistenico.{" "}
+              <b>Exemplo: Handstand, Full Planche, Front-Lever, L-Sit, etc!</b>
+            </li>
           </ul>
         </p>
       </section>
