@@ -28,7 +28,7 @@ export function HomeContent() {
               <Link href="/auth/signin">
                 <Button>Get Started</Button>
               </Link>
-              <Link href="#">
+              <Link href="/routines">
                 <Button variant={"outline"}>Learn More</Button>
               </Link>
             </div>
@@ -101,7 +101,8 @@ export function HomeContent() {
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
               Track Your Progress
             </h2>
-            <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+            <p className="max-w-[600px] text-muted-foregroun
+            d md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
               Stay motivated and on top of your fitness journey with our
               intuitive workout calendar.
             </p>
