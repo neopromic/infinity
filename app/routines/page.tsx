@@ -115,7 +115,7 @@ export default function Page() {
               <b>(menos ou mais, dependendo de suas capacidades físicas)</b>.
             </li>
             <li className="list-disc">
-              Flexão normal - 4 séries de 15 repetições.
+              Flexão militar - 4 séries de 15 repetições.
             </li>
             <li className="list-disc">
               Flexão diamante - 4 séries de 10 repetições.
