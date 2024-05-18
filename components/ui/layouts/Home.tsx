@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CardContent, Card } from "@/components/ui/card";
 import { Button } from "../button";
+import { SparklesIcon } from "lucide-react";
 
 export function HomeContent() {
   return (
@@ -26,10 +27,13 @@ export function HomeContent() {
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <Link href="/auth/signin">
-                <Button>Get Started</Button>
+                <Button className="gap-1">
+                  <SparklesIcon size="16px" />
+                  Inicie sua jornada!
+                </Button>
               </Link>
               <Link href="/routines">
-                <Button variant={"outline"}>Learn More</Button>
+                <Button variant={"outline"}>Conheça nossas rotinas</Button>
               </Link>
             </div>
           </div>
@@ -101,8 +105,10 @@ export function HomeContent() {
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
               Track Your Progress
             </h2>
-            <p className="max-w-[600px] text-muted-foregroun
-            d md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+            <p
+              className="max-w-[600px] text-muted-foregroun
+            d md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400"
+            >
               Stay motivated and on top of your fitness journey with our
               intuitive workout calendar.
             </p>
