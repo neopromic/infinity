@@ -182,10 +182,10 @@ export default function Page() {
         <Card>
           <img
             alt="Workout 1"
-            className="aspect-video overflow-hidden rounded-t-lg object-cover"
-            height="200"
+            className="w-full aspect-video overflow-hidden rounded-t-lg object-cover"
+            height="0"
             src="/oplaceholder.svg"
-            width="300"
+            width="0"
           />
           <CardContent className="space-y-2 p-4">
             <h3 className="text-lg font-semibold">Full Body Workout</h3>
