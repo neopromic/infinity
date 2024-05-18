@@ -120,8 +120,13 @@ export default function Page() {
             <li className="list-disc">
               Flexão diamante - 4 séries de 10 repetições.
             </li>
+            <li className="list-disc">Dips - 4 séries de 10 repetições.</li>
             <li className="list-disc">
-              Dips - 4 séries de 10 repetições.
+              Tríceps na cadeira - 4 séries de 10 repetições.
+            </li>
+            <li className="list-disc">
+              5min de cárdio de sua preferẽncia.{" "}
+              <b>Exemplo: Polichinelos, corrida parada, etc. </b>
             </li>
           </ul>
         </p>
