@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
 
 export default function Page() {
   return (
@@ -160,9 +161,9 @@ export default function Page() {
         </p>
       </div>
 
-      <section className=" pb-6 flex gap-4 flex-wrap">
+      <section className=" pb-6 grid grid-cols-2 gap-4 flex-wrap">
         <Card>
-          <img
+          <Image
             alt="Workout 1"
             className="w-full  aspect-video overflow-hidden rounded-t-lg object-cover"
             height="0"
@@ -180,7 +181,7 @@ export default function Page() {
           </CardContent>
         </Card>
         <Card>
-          <img
+          <Image
             alt="Workout 1"
             className="w-full aspect-video overflow-hidden rounded-t-lg object-cover"
             height="0"
