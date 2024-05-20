@@ -9,6 +9,9 @@ export default function Page() {
         <h2 className="text-3xl pt-12  pb-4 font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-6xl/none">
           Rotinas gerais
         </h2>
+        <Badge>
+          Lembre-se de descansar 3 minutos (no mínimo), entre séries.
+        </Badge>
         <p>
           <b>Segunda-feira - Peito, tríceps</b>
           <ul className="px-4 space-y-2">
@@ -28,7 +31,7 @@ export default function Page() {
               Tríceps na cadeira - 4 séries de 10 repetições.
             </li>
             <li className="list-disc">
-              5min de cárdio de sua preferẽncia.{" "}
+              5min de cárdio de sua preferência.{" "}
               <b>Exemplo: Polichinelos, corrida parada, etc. </b>
             </li>
           </ul>
@@ -57,7 +60,7 @@ export default function Page() {
               Agachamentos com salto - 4 séries de 15 repetições
             </li>
             <li className="list-disc">
-              5min de cárdio de sua preferẽncia.{" "}
+              5min de cárdio de sua preferência.{" "}
               <b>Exemplo: Polichinelos, corrida parada, etc. </b>
             </li>
           </ul>
@@ -83,7 +86,7 @@ export default function Page() {
               Elevação unilateral - 4 séries de 25 repetições
             </li>
             <li className="list-disc">
-              5min de cárdio de sua preferẽncia.{" "}
+              5min de cárdio de sua preferência.{" "}
               <b>Exemplo: Polichinelos, corrida parada, etc. </b>
             </li>
           </ul>
@@ -112,7 +115,7 @@ export default function Page() {
               Agachamentos com salto - 4 séries de 15 repetições
             </li>
             <li className="list-disc">
-              5min de cárdio de sua preferẽncia.{" "}
+              5min de cárdio de sua preferência.{" "}
               <b>Exemplo: Polichinelos, corrida parada, etc. </b>
             </li>
           </ul>
@@ -136,7 +139,7 @@ export default function Page() {
               Tríceps na cadeira - 4 séries de 10 repetições.
             </li>
             <li className="list-disc">
-              5min de cárdio de sua preferẽncia.{" "}
+              5min de cárdio de sua preferência.{" "}
               <b>Exemplo: Polichinelos, corrida parada, etc. </b>
             </li>
           </ul>
@@ -161,7 +164,7 @@ export default function Page() {
         </p>
       </div>
 
-      <section className=" pb-6 grid grid-cols-2 gap-4 flex-wrap">
+      <section className=" pb-6 grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4 flex-wrap">
         <Card>
           <Image
             alt="Workout 1"
