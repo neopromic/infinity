@@ -17,10 +17,10 @@ export default function Page() {
       </h1>
       <form className="space-y-4 w-80">
         <div className="space-y-2">
-          <Label>Email</Label>
+          <Label htmlFor="email_input">Email</Label>
           <Input
+            id="email_input"
             required
-            id="input_email"
             placeholder="infinityuser@mail.com"
             type="email"
             onChange={(e) => {
@@ -29,8 +29,9 @@ export default function Page() {
           />
         </div>
         <div className="space-y-2">
-          <Label className="mt-4">Senha</Label>
+          <Label htmlFor="password_input" className="mt-4">Senha</Label>
           <Input
+            id="password_input"
             required
             type="password"
             onChange={(e) => {
