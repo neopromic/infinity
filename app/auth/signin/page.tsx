@@ -39,14 +39,7 @@ export default function Page() {
           />
         </div>
         <Button variant={"link"}>Esqueceu a senha?</Button>
-        <Button
-          className="w-full"
-          onClick={() => {
-            signIn();
-          }}
-        >
-          Entrar em minha conta
-        </Button>
+        <Button className="w-full">Entrar em minha conta</Button>
         <Separator />
         <Button className="w-full" variant={"secondary"}>
           Entrar usando Google
