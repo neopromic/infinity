@@ -8,6 +8,7 @@ import { FormEvent, useState } from "react";
 import Link from "next/link";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/services/database/firebase";
+import { redirect } from "next/navigation";
 
 export default function Page() {
   const [email, setEmail] = useState("");
@@ -16,8 +17,12 @@ export default function Page() {
   const signUp = (e: FormEvent) => {
     e.preventDefault();
 
-    createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => console.log(userCredential))
+    createUserWithEmailAndPassword(auth, email, password).then((user) => {
+      console.debug(user);
+      const redirectToHome = () => redirect("/");
+
+      setTimeout(redirectToHome, 500);
+    });
   };
 
   return (
