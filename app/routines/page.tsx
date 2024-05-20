@@ -9,7 +9,7 @@ export default function Page() {
         <h2 className="text-3xl pt-12  pb-4 font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-6xl/none">
           Rotinas gerais
         </h2>
-        <Badge>
+        <Badge className="mb-4">
           Lembre-se de descansar 3 minutos (no mínimo), entre séries.
         </Badge>
         <p>
