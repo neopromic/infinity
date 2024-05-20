@@ -5,6 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { useState } from "react";
+import { } from "react"
+import Link from "next/link";
 
 export default function Page() {
   const [email, setEmail] = useState("");
@@ -29,7 +31,9 @@ export default function Page() {
           />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="password_input" className="mt-4">Senha</Label>
+          <Label htmlFor="password_input" className="mt-4">
+            Senha
+          </Label>
           <Input
             id="password_input"
             required
@@ -45,6 +49,12 @@ export default function Page() {
         <Button className="w-full" variant={"secondary"}>
           Entrar usando Google
         </Button>
+        <Separator />
+        <Link href="/auth/signup">
+          <Button variant={"link"} >
+            Ou crie sua conta na plataforma!
+          </Button>
+        </Link>
       </form>
     </main>
   );
