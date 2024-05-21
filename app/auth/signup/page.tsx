@@ -18,6 +18,15 @@ export default function Page() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  /**
+   * This create the user account using email and password  
+   * @params { e } - this parameter is just for use preventDefault method in forms.
+   * 
+   * @returns UserCredential
+   * @version 1.0.0
+   * @author neopromic 
+   * 
+   */
   const handleSignUp = (e: FormEvent) => {
     e.preventDefault();
 
@@ -26,8 +35,16 @@ export default function Page() {
       redirect("/");
     });
   };
-
-  const handleSignUpWithGoogle = () => {
+  
+  /**
+   * This create the user account using Google
+   * @returns UserCredential || result
+   * 
+   * @example const result = await signInWithPopup(auth, provider);
+   * @version 1.0.0
+   * @author neopromic
+   */
+  const handleSignUpWithGoogle = () : any => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider).then((user) => {
       console.log(user);
