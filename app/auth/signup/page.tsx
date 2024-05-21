@@ -20,7 +20,7 @@ export default function Page() {
 
   /**
    * This create the user account using email and password  
-   * @params { e } - this parameter is just for use preventDefault method in forms.
+   * @param e this parameter is just for use preventDefault method in forms.
    * 
    * @returns UserCredential
    * @version 1.0.0
@@ -35,7 +35,7 @@ export default function Page() {
       redirect("/");
     });
   };
-  
+
   /**
    * This create the user account using Google
    * @returns UserCredential || result
