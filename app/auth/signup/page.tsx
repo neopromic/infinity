@@ -6,7 +6,11 @@ import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { FormEvent, useState } from "react";
 import Link from "next/link";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+} from "firebase/auth";
 import { auth } from "@/services/database/firebase";
 import { redirect } from "next/navigation";
 
@@ -14,14 +18,19 @@ export default function Page() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const signUp = (e: FormEvent) => {
+  const handleSignUp = (e: FormEvent) => {
     e.preventDefault();
 
     createUserWithEmailAndPassword(auth, email, password).then((user) => {
-      console.debug(user);
-      const redirectToHome = () => redirect("/");
+      console.log(user);
+      redirect("/");
+    });
+  };
 
-      setTimeout(redirectToHome, 500);
+  const handleSignUpWithGoogle = () => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider).then((user) => {
+      console.log(user);
     });
   };
 
@@ -30,12 +39,11 @@ export default function Page() {
       <h1 className="font-bold tracking-tight text-3xl text-center ">
         Cadastre-se na plataforma da infinity!
       </h1>
-      <form onSubmit={(e) => signUp(e)} className="space-y-4 w-80">
+      <form onSubmit={(e) => handleSignUp(e)} className="space-y-4 w-80">
         <div className="space-y-2">
           <Label htmlFor="email_inpupt">Email</Label>
           <Input
             id="email_input"
-            required
             placeholder="infinityuser@mail.com"
             type="email"
             value={email}
@@ -48,7 +56,6 @@ export default function Page() {
           </Label>
           <Input
             id="password_input"
-            required
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -57,11 +64,16 @@ export default function Page() {
         <Link href="/auth/signin">
           <Button variant={"link"}>Entrar em uma conta existente</Button>
         </Link>
-        <Button type="submit" className="w-full">
+        <Button type="submit" className="w-full" onClick={handleSignUp}>
           Criar minha conta
         </Button>
         <Separator />
-        <Button type="button" className="w-full" variant={"secondary"}>
+        <Button
+          type="button"
+          className="w-full"
+          variant={"secondary"}
+          onClick={handleSignUpWithGoogle}
+        >
           Entrar usando Google
         </Button>
       </form>
