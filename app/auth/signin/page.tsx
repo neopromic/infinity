@@ -5,14 +5,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { FormEvent, useState } from "react";
-import Link from "next/link";
 import { auth } from "@/services/database/firebase";
 import {
   signInWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
 } from "firebase/auth";
-import { redirect } from "next/navigation";
+import Link from "next/link";
 
 export default function Page() {
   const [email, setEmail] = useState("");
@@ -23,10 +22,8 @@ export default function Page() {
 
     signInWithEmailAndPassword(auth, email, password).then((user) => {
       console.log(user);
-      redirect("/routines/createRoutine");
     });
   };
-
   const handleSignINWIthGoogle = () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider).then((result) => {
@@ -43,7 +40,6 @@ export default function Page() {
           <Label htmlFor="email_input">Email</Label>
           <Input
             id="email_input"
-            required
             placeholder="infinityuser@mail.com"
             type="email"
             onChange={(e) => {
@@ -57,7 +53,6 @@ export default function Page() {
           </Label>
           <Input
             id="password_input"
-            required
             type="password"
             onChange={(e) => {
               setPassword(e.target.value);
