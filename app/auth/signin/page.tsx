@@ -41,12 +41,13 @@ export default function Page() {
   });
    * @public
    */
-  const handleSignInWithGoogle = () : any => {
+  const handleSignInWithGoogle = (): any => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider).then((result) => {
       console.log(result);
     });
   };
+  
   return (
     <main className="px-4 py-6 space-y-4 flex flex-col items-center justify-center mt-8">
       <h1 className="font-bold tracking-tight text-3xl text-center ">
