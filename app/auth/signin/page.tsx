@@ -12,10 +12,14 @@ import {
   GoogleAuthProvider,
 } from "firebase/auth";
 import Link from "next/link";
+import { useToast } from "@/components/ui/use-toast";
 
 export default function Page() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const { toast } = useToast()
+
   /**
    * Function to authenticate users with email and password
    * @param e Used for preventDefault in forms.
@@ -24,8 +28,11 @@ export default function Page() {
   const handleSignIn = (e: FormEvent) => {
     e.preventDefault();
 
-    signInWithEmailAndPassword(auth, email, password).then((user) => {
-      console.log(user);
+    signInWithEmailAndPassword(auth, email, password).then((userData) => {
+      toast({
+        title: "Welcome back!",
+        description: "You're now logged as " + userData.user.email
+      })
     });
   };
 
@@ -44,7 +51,10 @@ export default function Page() {
   const handleSignInWithGoogle = (): any => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider).then((result) => {
-      console.log(result);
+      toast({
+        title: "Welcome back!",
+        description: "You're now signed as " + result.user.displayName
+      })
     });
   };
   
