@@ -16,7 +16,11 @@ import Link from "next/link";
 export default function Page() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  /**
+   * Function to authenticate users with email and password
+   * @param e Used for preventDefault in forms.
+   * @returns Promise<UserCredential>
+   */
   const handleSignIn = (e: FormEvent) => {
     e.preventDefault();
 
@@ -24,7 +28,20 @@ export default function Page() {
       console.log(user);
     });
   };
-  const handleSignINWIthGoogle = () => {
+
+  /**
+   * Function used to authenticate usinng Google
+   * @requires auth
+   * @requires provider
+   * 
+   * @example
+  const provider = new GoogleAuthProvider();
+  signInWithPopup(auth, provider).then((result) => {
+    console.log(result);
+  });
+   * @public
+   */
+  const handleSignInWithGoogle = () : any => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider).then((result) => {
       console.log(result);
@@ -67,12 +84,12 @@ export default function Page() {
         <Button
           className="w-full"
           variant={"secondary"}
-          onClick={handleSignINWIthGoogle}
+          onClick={handleSignInWithGoogle}
         >
           Entrar usando Google
         </Button>
         <Separator />
-        <Link href="/auth/signup">
+        <Link href="/auth/signup" className="flex items-center justify-center">
           <Button variant={"link"}>Ou crie sua conta na plataforma!</Button>
         </Link>
       </form>
