@@ -12,25 +12,50 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { auth } from "@/services/database/firebase";
-import { redirect } from "next/navigation";
+import { useToast } from "@/components/ui/use-toast";
 
 export default function Page() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSignUp = (e: FormEvent) => {
+  const { toast } = useToast();
+
+  /**
+   * This create the user account using email and password
+   * @param e this parameter is just for use preventDefault method in forms.
+   *
+   * @returns UserCredential
+   * @version 1.0.0
+   * @author neopromic
+   *
+   */
+  const handleSignUp = async (e: FormEvent) => {
     e.preventDefault();
 
-    createUserWithEmailAndPassword(auth, email, password).then((user) => {
-      console.log(user);
-      redirect("/");
+    const user = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    ).then((userData) => {
+
     });
   };
 
-  const handleSignUpWithGoogle = () => {
+  /**
+   * This create the user account using Google
+   * @returns UserCredential || result
+   *
+   * @example const result = await signInWithPopup(auth, provider);
+   * @version 1.0.0
+   * @author neopromic
+   */
+  const handleSignUpWithGoogle = (): any => {
     const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider).then((user) => {
-      console.log(user);
+    signInWithPopup(auth, provider).then((userData) => {
+      toast({
+        title: "Welcome back!",
+        description: "You're now signed as " + userData.user.displayName
+      })
     });
   };
 
@@ -61,9 +86,7 @@ export default function Page() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <Link href="/auth/signin">
-          <Button variant={"link"}>Entrar em uma conta existente</Button>
-        </Link>
+
         <Button type="submit" className="w-full" onClick={handleSignUp}>
           Criar minha conta
         </Button>
@@ -76,6 +99,10 @@ export default function Page() {
         >
           Entrar usando Google
         </Button>
+        <Separator />
+        <Link href="/auth/signin" className="flex items-center justify-center">
+          <Button variant={"link"}>Entrar em uma conta existente</Button>
+        </Link>
       </form>
     </main>
   );
