@@ -4,21 +4,25 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { auth } from "@/services/database/firebase";
 import {
   signInWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
+  getRedirectResult,
 } from "firebase/auth";
 import Link from "next/link";
 import { useToast } from "@/components/ui/use-toast";
+import { useRouter } from "next/navigation";
+import { GoogleLogo } from "@phosphor-icons/react";
 
 export default function Page() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { toast } = useToast()
+  const { toast } = useToast();
+  const router = useRouter();
 
   /**
    * Function to authenticate users with email and password
@@ -31,8 +35,9 @@ export default function Page() {
     signInWithEmailAndPassword(auth, email, password).then((userData) => {
       toast({
         title: "Welcome back!",
-        description: "You're now logged as " + userData.user.email
-      })
+        description: "You're now logged as " + userData.user.displayName,
+      });
+      router.push("/test");
     });
   };
 
@@ -53,11 +58,11 @@ export default function Page() {
     signInWithPopup(auth, provider).then((result) => {
       toast({
         title: "Welcome back!",
-        description: "You're now signed as " + result.user.displayName
-      })
+        description: "You're now signed as " + result.user.displayName,
+      });
     });
   };
-  
+
   return (
     <main className="px-4 py-6 space-y-4 flex flex-col items-center justify-center mt-8">
       <h1 className="font-bold tracking-tight text-3xl text-center ">
@@ -93,10 +98,11 @@ export default function Page() {
         </Button>
         <Separator />
         <Button
-          className="w-full"
+          className="w-full gap-2 items-center"
           variant={"secondary"}
           onClick={handleSignInWithGoogle}
         >
+          <GoogleLogo />
           Entrar usando Google
         </Button>
         <Separator />

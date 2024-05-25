@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
+import { GoogleLogo } from "@phosphor-icons/react"
 import { FormEvent, useState } from "react";
 import Link from "next/link";
 import {
@@ -13,12 +14,14 @@ import {
 } from "firebase/auth";
 import { auth } from "@/services/database/firebase";
 import { useToast } from "@/components/ui/use-toast";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const { toast } = useToast();
+  const router = useRouter();
 
   /**
    * This create the user account using email and password
@@ -37,7 +40,12 @@ export default function Page() {
       email,
       password
     ).then((userData) => {
+      toast({
+        title: "Conta criada com sucesso!",
+        description: "Bem-vindo ao projeo Infinity!",
+      });
 
+      router.push("/app");
     });
   };
 
@@ -49,13 +57,14 @@ export default function Page() {
    * @version 1.0.0
    * @author neopromic
    */
-  const handleSignUpWithGoogle = (): any => {
+  const handleSignUpWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider).then((userData) => {
       toast({
         title: "Welcome back!",
-        description: "You're now signed as " + userData.user.displayName
-      })
+        description: "You're now signed as " + userData.user.displayName,
+      });
+      router.push("/app");
     });
   };
 
@@ -93,10 +102,11 @@ export default function Page() {
         <Separator />
         <Button
           type="button"
-          className="w-full"
+          className="w-full gap-2 items-center"
           variant={"secondary"}
           onClick={handleSignUpWithGoogle}
         >
+          <GoogleLogo />
           Entrar usando Google
         </Button>
         <Separator />

@@ -26,7 +26,7 @@ export const app: FirebaseApp = initializeApp(firebaseConfig);
  * import { auth } from "@/services/database/firebase";
  * // ...others imports
  * 
- * // let' give an example using auth
+ * // let's give an example using auth
  * const provider = new GoogleAuthProvider();
  * signInWithPopup(auth, provider);
  *
