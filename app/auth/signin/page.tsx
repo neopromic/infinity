@@ -15,6 +15,7 @@ import {
 import Link from "next/link";
 import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
+import { GoogleLogo } from "@phosphor-icons/react";
 
 export default function Page() {
   const [email, setEmail] = useState("");
@@ -97,10 +98,11 @@ export default function Page() {
         </Button>
         <Separator />
         <Button
-          className="w-full"
+          className="w-full gap-2 items-center"
           variant={"secondary"}
           onClick={handleSignInWithGoogle}
         >
+          <GoogleLogo />
           Entrar usando Google
         </Button>
         <Separator />

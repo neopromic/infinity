@@ -102,7 +102,7 @@ export default function Page() {
         <Separator />
         <Button
           type="button"
-          className="w-full"
+          className="w-full gap-2 items-center"
           variant={"secondary"}
           onClick={handleSignUpWithGoogle}
         >
