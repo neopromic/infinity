@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/ui/theme-provider";
+import { Inter } from "next/font/google";
+import { ThemeProvider } from "@/utils/providers/theme-provider";
 import Header from "@/components/ui/layouts/Header";
-import Footer from "@/components/ui/layouts/Footer";
 import { Toaster } from "@/components/ui/toaster";
+import { Providers } from "@/utils/providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,22 +21,24 @@ export default function RootLayout({
 }) {
   return (
     <>
-    <html lang="pt-BR" suppressHydrationWarning>
-      <head />
-      <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          storageKey="infinity-theme"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Header />
-          {children}
-          <Toaster />
-        </ThemeProvider>
-      </body>
-    </html>
-  </>
+      <html lang="pt-BR" suppressHydrationWarning>
+        <head />
+        <body>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            storageKey="infinity-theme"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Providers>
+              <Header />
+              {children}
+              <Toaster />
+            </Providers>
+          </ThemeProvider>
+        </body>
+      </html>
+    </>
   );
 }

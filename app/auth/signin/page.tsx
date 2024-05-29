@@ -4,13 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useState } from "react";
 import { auth } from "@/services/database/firebase";
 import {
   signInWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
-  getRedirectResult,
 } from "firebase/auth";
 import Link from "next/link";
 import { useToast } from "@/components/ui/use-toast";
@@ -37,7 +36,7 @@ export default function Page() {
         title: "Welcome back!",
         description: "You're now logged as " + userData.user.displayName,
       });
-      router.push("/test");
+      router.push("/home");
     });
   };
 
@@ -55,12 +54,22 @@ export default function Page() {
    */
   const handleSignInWithGoogle = (): any => {
     const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider).then((result) => {
-      toast({
-        title: "Welcome back!",
-        description: "You're now signed as " + result.user.displayName,
+    try {
+      signInWithPopup(auth, provider).then((result) => {
+        toast({
+          title: "Welcome back!",
+          description: "You're now signed as " + result.user.displayName,
+        });
+
+        router.push("/home");
       });
-    });
+    } catch (error) {
+      console.log(error);
+      toast({
+        title: "Ops! Algo parece errado!",
+        description: "Erro encontrado: " + error,
+      });
+    }
   };
 
   return (

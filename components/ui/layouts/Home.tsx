@@ -15,7 +15,7 @@ export function HomeContent() {
             alt="Hero"
             className="mx-auto aspect-square overflow-hidden rounded-xl object-cover sm:w-full lg:order-last"
             height="550"
-            src="/oplaceholder.svg"
+            src="/infinty.svg"
             width="550"
           />
           <div className="flex flex-col justify-center space-y-4">

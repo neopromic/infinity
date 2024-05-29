@@ -45,7 +45,7 @@ export default function Page() {
         description: "Bem-vindo ao projeo Infinity!",
       });
 
-      router.push("/app");
+      router.push("/home");
     });
   };
 
@@ -64,7 +64,7 @@ export default function Page() {
         title: "Welcome back!",
         description: "You're now signed as " + userData.user.displayName,
       });
-      router.push("/app");
+      router.push("/home");
     });
   };
 
