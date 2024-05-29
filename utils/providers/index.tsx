@@ -1,6 +1,6 @@
 "use client";
 
-import { AuthProvider } from "@/utils/context/authContext";
+import { FirebaseAuthProvider } from "@/utils/context/authContext";
 
 /**
  * This return a list of providers client-side
@@ -10,7 +10,7 @@ import { AuthProvider } from "@/utils/context/authContext";
 export const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      <AuthProvider>{children}</AuthProvider>
+      <FirebaseAuthProvider>{children}</FirebaseAuthProvider>
     </>
   );
 };
