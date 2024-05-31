@@ -1,11 +1,16 @@
 import { auth } from "@/services/database/firebase";
-import { User as IUser } from "firebase/auth";
+import {
+  User as IUser,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
+import Cookies from "js-cookie";
 
-type User = IUser | null;
+type User = IUser | null | void;
 type ContextState = {
   user: User;
-  login: () => void;
+  login: (email: string, password: string) => void;
   logout: () => void;
 };
 
@@ -16,15 +21,43 @@ export const FirebaseAuthProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const login = () => {
+  const [user, setUser] = useState<User>(() => {
+    const userCookies = Cookies.get("user");
+    return userCookies ? JSON.parse(userCookies) : null;
+  });
+
+  const login = (email: string, password: string) => {
     // TODO: create add cookie storage
+
+    signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
+      const user = userCredential.user;
+      const userToken = user.getIdToken;
+      Cookies.set("user", JSON.stringify(user));
+      Cookies.set("user_token", JSON.stringify(userToken));
+    });
+  };
+
+  const signUp = (email: string, password: string) => {
+    createUserWithEmailAndPassword(auth, email, password).then(
+      (userCredential) => {
+        const user = userCredential.user;
+        const userToken = user.getIdToken;
+
+        Cookies.set("user", JSON.stringify(user));
+        Cookies.set("user_token", JSON.stringify(userToken));
+      }
+    );
   };
 
   const logout = () => {
     // TODO: create cookie remove and logout
+
+    auth.signOut();
+
+    Cookies.remove("user");
+    Cookies.remove("user_token");
   };
 
-  const [user, setUser] = useState<User>(null);
   const value = { user, login, logout };
 
   useEffect(() => {
