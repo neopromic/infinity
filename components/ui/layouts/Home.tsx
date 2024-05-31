@@ -4,7 +4,6 @@ import { Button } from "../button";
 import { RocketIcon, SparklesIcon } from "lucide-react";
 import Image from "next/image";
 import { Badge } from "../badge";
-import Footer from "./Footer";
 
 export function HomeContent() {
   return (

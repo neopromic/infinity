@@ -4,23 +4,22 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
-import { GoogleLogo } from "@phosphor-icons/react"
+import { GoogleLogo } from "@phosphor-icons/react";
 import { FormEvent, useState } from "react";
 import Link from "next/link";
-import {
-  GoogleAuthProvider,
-  createUserWithEmailAndPassword,
-  signInWithPopup,
-} from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "@/services/database/firebase";
 import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
+import { useFirebaseAuth } from "@/utils/context/authContext";
+import Cookies from "js-cookie";
 
 export default function Page() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const { toast } = useToast();
+  const { signUp } = useFirebaseAuth();
   const router = useRouter();
 
   /**
@@ -35,18 +34,9 @@ export default function Page() {
   const handleSignUp = async (e: FormEvent) => {
     e.preventDefault();
 
-    const user = await createUserWithEmailAndPassword(
-      auth,
-      email,
-      password
-    ).then((userData) => {
-      toast({
-        title: "Conta criada com sucesso!",
-        description: "Bem-vindo ao projeo Infinity!",
-      });
+    signUp(email, password);
 
-      router.push("/app");
-    });
+    router.push("/home");
   };
 
   /**
@@ -59,13 +49,27 @@ export default function Page() {
    */
   const handleSignUpWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider).then((userData) => {
-      toast({
-        title: "Welcome back!",
-        description: "You're now signed as " + userData.user.displayName,
+    try {
+      signInWithPopup(auth, provider).then((result) => {
+        const user = result.user;
+        const userToken = user.getIdToken;
+
+        Cookies.set("user", JSON.stringify(user));
+        Cookies.set("user_token", JSON.stringify(userToken));
+        toast({
+          title: "Welcome back!",
+          description: "You're now signed as " + user.displayName,
+        });
+
+        router.push("/home");
       });
-      router.push("/app");
-    });
+    } catch (error) {
+      console.log(error);
+      toast({
+        title: "Ops! Algo parece errado!",
+        description: "Erro encontrado: " + error,
+      });
+    }
   };
 
   return (
