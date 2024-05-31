@@ -14,7 +14,7 @@ import { useRouter } from "next/navigation";
 import { useFirebaseAuth } from "@/utils/context/authContext";
 import Cookies from "js-cookie";
 
-export function Page() {
+export default function Page() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
