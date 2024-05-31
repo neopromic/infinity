@@ -12,8 +12,9 @@ import { auth } from "@/services/database/firebase";
 import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
 import { useFirebaseAuth } from "@/utils/context/authContext";
+import Cookies from "js-cookie";
 
-export default function Page() {
+export function Page() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -47,7 +48,7 @@ export default function Page() {
    * @author neopromic
    */
   const handleSignUpWithGoogle = async () => {
-    const provider = GoogleAuthProvider();
+    const provider = new GoogleAuthProvider();
     try {
       signInWithPopup(auth, provider).then((result) => {
         const user = result.user;
