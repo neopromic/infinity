@@ -4,7 +4,6 @@ import { Button } from "../button";
 import { RocketIcon, SparklesIcon } from "lucide-react";
 import Image from "next/image";
 import { Badge } from "../badge";
-import Footer from "./Footer";
 
 export function HomeContent() {
   return (
@@ -15,7 +14,7 @@ export function HomeContent() {
             alt="Hero"
             className="mx-auto aspect-square overflow-hidden rounded-xl object-cover sm:w-full lg:order-last"
             height="550"
-            src="/infinty.svg"
+            src="/oplaceholder.svg"
             width="550"
           />
           <div className="flex flex-col justify-center space-y-4">
