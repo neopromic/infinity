@@ -11,6 +11,7 @@ type User = IUser | null | void;
 type ContextState = {
   user: User;
   login: (email: string, password: string) => void;
+  signUp: (email: string, password: string) => void;
   logout: () => void;
 };
 
@@ -58,7 +59,7 @@ export const FirebaseAuthProvider = ({
     Cookies.remove("user_token");
   };
 
-  const value = { user, login, logout };
+  const value = { user, login, logout, signUp };
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(setUser);
