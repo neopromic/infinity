@@ -6,21 +6,20 @@ import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { FormEvent, useState } from "react";
 import { auth } from "@/services/database/firebase";
-import {
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  GoogleAuthProvider,
-} from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import Link from "next/link";
 import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
 import { GoogleLogo } from "@phosphor-icons/react";
+import { useFirebaseAuth } from "@/utils/context/authContext";
+import Cookies from "js-cookie";
 
 export default function Page() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const { toast } = useToast();
+  const { login } = useFirebaseAuth();
   const router = useRouter();
 
   /**
@@ -31,13 +30,7 @@ export default function Page() {
   const handleSignIn = (e: FormEvent) => {
     e.preventDefault();
 
-    signInWithEmailAndPassword(auth, email, password).then((userData) => {
-      toast({
-        title: "Welcome back!",
-        description: "You're now logged as " + userData.user.displayName,
-      });
-      router.push("/home");
-    });
+    login(email, password);
   };
 
   /**
@@ -56,9 +49,14 @@ export default function Page() {
     const provider = new GoogleAuthProvider();
     try {
       signInWithPopup(auth, provider).then((result) => {
+        const user = result.user;
+        const userToken = user.getIdToken;
+
+        Cookies.set("user", JSON.stringify(user));
+        Cookies.set("user_token", JSON.stringify(userToken));
         toast({
           title: "Welcome back!",
-          description: "You're now signed as " + result.user.displayName,
+          description: "You're now signed as " + user.displayName,
         });
 
         router.push("/home");
