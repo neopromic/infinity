@@ -1,3 +1,5 @@
+"use client";
+
 import { useFirebaseAuth } from "@/utils/context/authContext";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -20,7 +22,7 @@ export default function PrivateRouter({
 
   if (user === undefined) {
     // Mostrar estado de carregamento enquanto verificamos o usuário
-    <Skeleton className="w-[100px]" />
+    <Skeleton className="w-[100px]" />;
   }
 
   if (!user) {
