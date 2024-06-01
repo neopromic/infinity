@@ -27,11 +27,12 @@ export default function PrivateRouter({
 
   if (!user) {
     return (
-      <>
+      <section className="container">
         <Image
           src="/undraw_safe.svg"
           width={0}
           height={0}
+          className="w-fit h-fit"
           alt="This is an safe are, you need are logged-in!"
         />
         <TypographyH1>Ops! Algo parece estar errado!</TypographyH1>
@@ -39,7 +40,7 @@ export default function PrivateRouter({
           Redirecionando para página
           <span className="font-bold textt-white"> /auth/signin.</span>
         </p>
-      </>
+      </section>
     );
   }
 
