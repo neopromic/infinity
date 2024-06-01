@@ -15,20 +15,20 @@ export default function PrivateRouter({
   const router = useRouter();
 
   useEffect(() => {
-    if (!user) {
+    if (user === null) {
       router.push("/auth/login");
     }
   }, [user, router]);
 
   if (user === undefined) {
-    // Mostrar estado de carregamento enquanto verificamos o usuário
-    <Skeleton className="w-[100px]" />;
+    // Mostrar estado de carregamento enquanto verificamos o usuÃ¡rio
+    return <Skeleton className="w-[100px]" />;
   }
 
   if (!user) {
-    // Mostrar mensagem de erro se a navegação falhar por algum motivo
+    // Mostrar mensagem de erro se a navegaÃ§Ã£o falhar por algum motivo
     return <TypographyH1>Ops! Algo parece estar errado!</TypographyH1>;
   }
 
-  return children;
+  return children
 }
