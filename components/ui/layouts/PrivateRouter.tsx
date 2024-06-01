@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { TypographyH1 } from "../typography/Heading1";
 import { Skeleton } from "../skeleton";
-import Image from "next/image"
+import Image from "next/image";
 
 export default function PrivateRouter({
   children,
@@ -28,15 +28,16 @@ export default function PrivateRouter({
   if (!user) {
     return (
       <>
-        <Image 
-        src="/undraw_safe.svg"
-        width={0}
-        height={0}
-        alt="This is an safe are, you need are logged-in!"
+        <Image
+          src="/undraw_safe.svg"
+          width={0}
+          height={0}
+          alt="This is an safe are, you need are logged-in!"
         />
         <TypographyH1>Ops! Algo parece estar errado!</TypographyH1>
         <p className="text-muted-foreground mt-2 w-full text-center">
-          Redirecionando para página<span className="font-bold textt-white"> /auth/signin.</span>
+          Redirecionando para página
+          <span className="font-bold textt-white"> /auth/signin.</span>
         </p>
       </>
     );
