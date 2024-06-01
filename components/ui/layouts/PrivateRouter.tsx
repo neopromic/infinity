@@ -1,7 +1,7 @@
 "use client";
 
 import { useFirebaseAuth } from "@/utils/context/authContext";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { TypographyH1 } from "../typography/Heading1";
 import { Skeleton } from "../skeleton";
@@ -16,7 +16,7 @@ export default function PrivateRouter({
 
   useEffect(() => {
     if (user === null) {
-      router.push("/auth/login");
+      router.push("/auth/signin");
     }
   }, [user, router]);
 
@@ -27,8 +27,13 @@ export default function PrivateRouter({
 
   if (!user) {
     // Mostrar mensagem de erro se a navegaÃ§Ã£o falhar por algum motivo
-    return <TypographyH1>Ops! Algo parece estar errado!</TypographyH1>;
+    return (
+      <>
+        <TypographyH1>Ops! Algo parece estar errado!</TypographyH1>
+        <p className="text-muted-foreground mt-2">Redirecionando para página /auth/signin.</p>
+      </>
+    );
   }
 
-  return children
+  return children;
 }
