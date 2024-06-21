@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
+import { Skeleton } from "@/components/ui/skeleton";
 import { TypographyH1 } from "@/components/ui/typography/Heading1";
-import { Flame } from "lucide-react";
+import { Flame, Clock9Icon } from "lucide-react";
 import { Plus } from "lucide-react";
 import Image from "next/image";
 
@@ -26,14 +26,26 @@ export default function Page() {
             <Plus />
             Criar minha nova rotina!
           </Button>
-          <Separator />
         </section>
       </header>
-      <main>
-        <h2 className="flex">
-            <Flame size={32}/>
-            Rotinas de treino feitas pela comunidade
+      <main className="mt-16">
+        <h2 className="flex items-center gap-2 font-bold tracking-wide text-2xl">
+          <Flame size={24} className="text-rose-500 fill-rose-500" />
+          Rotinas de treino feitas pela comunidade
         </h2>
+            <section className="flex flex-col space-y-2 my-4">
+            <Skeleton className="size-32" />
+            <Skeleton className="h-4 w-32" />
+            </section>
+        <h2 className="flex items-center gap-2 font-bold tracking-wide text-2xl">
+          <Clock9Icon size={24} className="" />
+          Rotinas criadas por voce
+        </h2>
+            <section className="flex flex-col space-y-2 my-4">
+            <Skeleton className="size-32" />
+            <Skeleton className="h-4 w-32" />
+            </section>
+
       </main>
     </section>
   );
