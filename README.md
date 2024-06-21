@@ -16,3 +16,9 @@ Que tal uma plataforma para ter seus treinos, deita, e metas nos treinos organiz
 
 ## 💪🏻 Partiu contribuir?!
 Que tal meter a mão na massa e nos ajudar a trazer melhorias pro infinity project?! 
+
+### Primeiros passos
+
+Clone o repositorio para sua maquina local para iniciar as contribuiçoes no projeto.
+
+``` git clone ...```
