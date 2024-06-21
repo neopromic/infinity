@@ -1,11 +1,15 @@
+"use client";
 import Link from "next/link";
 import { CardContent, Card } from "@/components/ui/card";
 import { Button } from "../button";
 import { RocketIcon, SparklesIcon } from "lucide-react";
 import Image from "next/image";
 import { Badge } from "../badge";
+import { useFirebaseAuth } from "@/utils/context/authContext";
 
 export function HomeContent() {
+  const { user } = useFirebaseAuth();
+
   return (
     <main className="flex flex-col">
       <section className="w-full py-12 md:py-24 lg:py-32">
@@ -37,7 +41,7 @@ export function HomeContent() {
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
-              <Link href="/auth/signin">
+              <Link href={user ? "/home" : "/auth/signin"}>
                 <Button className="gap-1">
                   <SparklesIcon size="16px" />
                   Entrar na plataforma!
