@@ -17,15 +17,15 @@ Que tal uma plataforma para ter seus treinos, deita, e metas nos treinos organiz
 ## 💪🏻 Partiu contribuir?!
 Que tal meter a mão na massa e nos ajudar a trazer melhorias pro infinity project?! 
 
-### Primeiros passos
+### 1️⃣ Primeiros passos
 
-Clone o repositorio para sua maquina local para iniciar as contribuiçoes no projeto.
+Clone o repositório para sua máquina local para iniciar as contribuições no projeto.
 
 ```bash
 git clone https://github.com/neopromic/infinity.git
 ```
-### Instalando as dependencias
-Antes de tudo, instale as dependencias do projeto para começar a desenvolver.
+### 2️⃣ Instalando as dependências
+Antes de tudo, instale as dependências do projeto para começar a desenvolver.
 
 ```bash
   pnpm install
@@ -33,15 +33,16 @@ Antes de tudo, instale as dependencias do projeto para começar a desenvolver.
 
 > Lembtre-se de utilizar ```pnpmm``` neste projeto.
 
-### DOTENV? SECURITY? Como configurar?!
-Nosso projeto utiliza .env (dotenv) como segurança de keys, ja que e um projeto open-source, entao antes de começar a desenvolver, voce precisa de passos adicionais.
+### ⚠️ DOTENV? SECURITY? Como configurar?!
+Nosso projeto utiliza .env (dotenv) como segurança de keys, ja que é um projeto open-source, então antes de começar a desenvolver, você precisa de passos adicionais.
 
 - [x] Acesse [o console do Firebase por uma conta sua do google](http://console.firebase.google.com/u/0/)
   - [x] Crie um novo projeto
   - [x] Obtenha as credenciais do projeto para web.
 
-> No arquivo ``services/database/firebase.ts`` voce encontra o arquivo de configuraçao da SDK do firebase, troque os valores para os seus obtidos no console do firebase.
-> Lembre-se de nao mudar os valores por segurança, apenas copie os nomes e coloque os valores dentro do .env.local
+> No arquivo ``services/database/firebase.ts`` voce encontra o arquivo de configuração da SDK do firebase, troque os valores para os seus obtidos no console do firebase.
+
+> Lembre-se de não mudar os valores por segurança, apenas copie os nomes e coloque os valores dentro do .env.local
 ```js
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -54,8 +55,10 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEANSUREMENT_ID,
 };
 ```
-> Sempre crie vaariaveis de ambente com o nome iniciando com ``NEXT_PUBLLIC_``, seguido pelo nome da variavel. Exemplo: ```NEXT_PUBLIC_API_URL```.
+> Sempre crie variáveis de ambente com o nome iniciando com ``NEXT_PUBLLIC_``, seguido pelo nome da variável. Exemplo: ```NEXT_PUBLIC_API_URL```.
 
-### Voce esta livre agora!
-Apos a configuraçao inicial do dotenv, voce esta pronto pra desenvolver novas features para a infinity-project! Crie coisas incriveis e mande PR (Pull Request), nosso time ira analisar e ver as melhores soluçoes e fazer merge!
+### ✅ Você está livre agora!
+Após a configuração inicial do dotenv, você está pronto pra desenvolver novas features para o infinity-project! 
+
+Crie coisas incríveis e mande PR (Pull Request), nosso time irá analisar e ver as melhores soluções pra fazer merge!
 
