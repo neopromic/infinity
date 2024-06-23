@@ -31,10 +31,10 @@ Antes de tudo, instale as dependências do projeto para começar a desenvolver.
   pnpm install
 ```
 
-> Lembre-se de utilizar ```pnpmm``` neste projeto.
+> Lembre-se de utilizar ```pnpm``` neste projeto.
 
 ### ⚠️ DOTENV? SECURITY? Como configurar?!
-Nosso projeto utiliza .env (dotenv) como segurança de keys, ja que é um projeto open-source, então antes de começar a desenvolver, você precisa de passos adicionais.
+Nosso projeto utiliza .env (dotenv) como segurança de keys, já que é um projeto open-source, então antes de começar a desenvolver, você precisa de passos adicionais.
 
 - [x] Acesse [o console do Firebase por uma conta sua do google](http://console.firebase.google.com/u/0/)
   - [x] Crie um novo projeto
