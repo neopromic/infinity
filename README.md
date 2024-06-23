@@ -12,10 +12,10 @@ Que tal uma plataforma para ter seus treinos, deita, e metas nos treinos organiz
 
 ## Demonstração
 
-![Screenshot of project demonstration initial ui (v1)](https://i.ibb.co/fqJxWJd/Screenshot-20240514-164516.png)
+<a href="https://ibb.co/xqhxK6p"><img src="https://i.ibb.co/xqhxK6p/Screenshot-20240623-160119.png" alt="Home Page" border="0"></a> <a href="https://ibb.co/z8ZvPY5"><img src="https://i.ibb.co/z8ZvPY5/Screenshot-20240623-160101.png" alt="AuthPage" border="0"></a> <a href="https://ibb.co/5YJCLzp"><img src="https://i.ibb.co/5YJCLzp/Screenshot-20240623-160056.png" alt="LandingPage" border="0"></a>
 
 ## 💪🏻 Partiu contribuir?!
-Que tal meter a mão na massa e nos ajudar a trazer melhorias pro infinity project?! 
+Que tal meter a mão na massa e nos ajudar a trazer melhorias pro projeto infinity?
 
 ### 1️⃣ Primeiros passos
 
@@ -31,7 +31,7 @@ Antes de tudo, instale as dependências do projeto para começar a desenvolver.
   pnpm install
 ```
 
-> Lembtre-se de utilizar ```pnpmm``` neste projeto.
+> Lembre-se de utilizar ```pnpmm``` neste projeto.
 
 ### ⚠️ DOTENV? SECURITY? Como configurar?!
 Nosso projeto utiliza .env (dotenv) como segurança de keys, ja que é um projeto open-source, então antes de começar a desenvolver, você precisa de passos adicionais.
