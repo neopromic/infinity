@@ -40,7 +40,7 @@ Nosso projeto utiliza .env (dotenv) como segurança de keys, já que é um proje
   - [x] Crie um novo projeto
   - [x] Obtenha as credenciais do projeto para web.
 
-> No arquivo ``services/database/firebase.ts`` voce encontra o arquivo de configuração da SDK do firebase, troque os valores para os seus obtidos no console do firebase.
+> No arquivo ``services/database/firebase.ts`` você encontra o arquivo de configuração da SDK do firebase, troque os valores para os seus obtidos no console do firebase.
 
 > Lembre-se de não mudar os valores por segurança, apenas copie os nomes e coloque os valores dentro do .env.local
 ```js
