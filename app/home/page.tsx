@@ -17,7 +17,7 @@ export default function Page() {
             height={0}
             className="size-4/5"
           />
-          <TypographyH1>Que jornada nos aguarda hoje?!</TypographyH1>
+          <TypographyH1>Que jornada nos espera hoje?!</TypographyH1>
           <Button className="gap-2">
             <Plus />
             Criar rotina mágica!
