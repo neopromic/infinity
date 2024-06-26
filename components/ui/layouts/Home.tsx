@@ -33,7 +33,7 @@ export function HomeContent() {
                 </Badge>
               </Link>
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-6xl/none">
-                Alcance seu potencial máximo
+                Alcance o máximo do seu potencial!
               </h1>
               <p className="max-w-[600px] md:text-xl text-muted-foreground">
                 Descubra as rotinas de treino perfeitas para ajuda-lo a se
