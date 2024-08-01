@@ -12,13 +12,13 @@ export function HomeContent() {
 
   return (
     <main className="flex flex-col">
-      <section className="w-full py-12 md:py-24 lg:py-32">
-        <div className="container grid items-center gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
+      <section className="w-full py-6 md:py-24 lg:py-32">
+        <div className="grid px-4 items-center gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
           <Image
-            alt="Hero"
+            alt="Banner hero section - mulher com abdomen visivel se exercitando"
             className="mx-auto aspect-square overflow-hidden rounded-xl object-cover sm:w-full lg:order-last"
             height="550"
-            src="/oplaceholder.svg"
+            src="/banner-home.jpg"
             width="550"
           />
           <div className="flex flex-col justify-center space-y-4">
