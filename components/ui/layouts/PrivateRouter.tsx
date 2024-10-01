@@ -3,7 +3,7 @@
 import { useFirebaseAuth } from "@/utils/context/authContext";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { TypographyH1 } from "../typography/Heading1";
+import { TypographyH1 } from "../../typography/Heading1";
 import { Skeleton } from "../skeleton";
 import Image from "next/image";
 
@@ -36,7 +36,7 @@ export default function PrivateRouter({
           alt="This is an safe are, you need are logged-in!"
         />
         <TypographyH1>Ops! Algo parece estar errado!</TypographyH1>
-        <p className="text-muted-foreground mt-2 w-full text-center">
+        <p className="mt-2 w-full text-center text-muted-foreground">
           Redirecionando para página
           <span className="font-bold textt-white"> /auth/signin.</span>
         </p>

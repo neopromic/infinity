@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { TypographyH1 } from "@/components/ui/typography/Heading1";
+import { TypographyH1 } from "@/components/typography/Heading1";
 import { Flame, Clock9Icon } from "lucide-react";
 import { Plus } from "lucide-react";
 import Image from "next/image";
