@@ -1,6 +1,7 @@
+
 import { auth } from "@/services/database/firebase";
 import {
-  User as IUser,
+  type User as IUser,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
 } from "firebase/auth";
@@ -77,7 +78,7 @@ export const useFirebaseAuth = () => {
   const context = useContext(FirebaseAuthContext);
 
   if (context === undefined) {
-    throw new Error("Yo! Parece que não temos uma autenticaão válida!");
+    throw new Error("Yo! Parece que não temos uma autenticação válida!");
   }
 
   return context;
