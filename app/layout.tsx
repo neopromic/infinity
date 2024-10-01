@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/utils/providers/theme-provider";
-import Header from "@/components/ui/layouts/Header";
 import { Toaster } from "@/components/ui/toaster";
 import { Providers } from "@/utils/providers";
+import { Header } from "@/components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,7 +32,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <Providers>
-              <Header />
+              <Header.LogoSection />
               {children}
               <Toaster />
             </Providers>
