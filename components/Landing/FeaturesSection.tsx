@@ -3,7 +3,7 @@ import { Card, CardContent } from "../ui/card";
 
 export const Features = () => {
 	return (
-		<section className="bg-gradient-to-b from-muted to-background py-12 w-full min-h-[calc(100dvh-3rem)]">
+		<section className="bg-gradient-to-b from-muted to-background py-12 w-full min-h-[calc(100vh-3rem)]">
 			<div className="items-start gap-6 lg:gap-12 grid lg:grid-cols-2 px-4 md:px-6 container">
 				<div className="space-y-2">
 					<h2 className="font-bold text-3xl sm:text-4xl md:text-5xl tracking-tighter">
