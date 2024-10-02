@@ -7,10 +7,11 @@ import { RocketIcon, SparklesIcon } from "lucide-react";
 import { RainbowButton } from "../ui/rainbow-button";
 import GridPattern from "../ui/grid-pattern";
 import { cn } from "@/lib/utils";
+import { ArrowDown } from "@phosphor-icons/react";
 
 export const Hero = () => {
 	return (
-		<section className="flex flex-col justify-center items-center w-full h-[calc(100dvh-3rem)]">
+		<section className="relative flex flex-col justify-center items-center w-full h-[calc(100dvh-3rem)]">
 			<div className="flex flex-col justify-center items-center space-y-4 py-4 px">
 				<Badge className="gap-2 w-fit select-none">
 					<RocketIcon
@@ -32,6 +33,7 @@ export const Hero = () => {
 					<RainbowButton>Conheça nossas rotinas</RainbowButton>
 				</Link>
 			</div>
+			<ArrowDown className="bottom-6 absolute text-primary animate-bounce" />
 			<GridPattern
 				width={20}
 				height={20}
