@@ -1,5 +1,5 @@
-import { LogoSection } from "./LogoSection";
+import { Container } from "./Container";
 
 export const Header = {
-  LogoSection
-}
+	Container,
+};
