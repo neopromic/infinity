@@ -1,11 +1,11 @@
-import { HomeContent } from "@/components/ui/layouts/Home";
+import { Features } from "@/components/Landing/FeaturesSection";
+import { Hero } from "@/components/Landing/Hero";
 
 export default function Home() {
   return (
-    <div className="w-full h-screen select-none">
-      <main>
-        <HomeContent />
-      </main>
-    </div>
+    <main className="w-full">
+      <Hero />
+      <Features />
+    </main>
   );
 }
