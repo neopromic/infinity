@@ -81,8 +81,6 @@ const workoutRoutine: WorkoutDay[] = [
 ];
 
 export default function WorkoutRoutines() {
-	const [activeDay, setActiveDay] = useState<string | null>(null);
-
 	return (
 		<main className="mx-auto px-4 py-6 container">
 			<section className="mb-12">
