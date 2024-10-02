@@ -28,12 +28,6 @@ export const Hero = () => {
 				</p>
 			</div>
 			<div className="flex min-[400px]:flex-row flex-col gap-2">
-				{/* <Link href={user ? "/home" : "/auth/signin"}>
-					<Button className="gap-1">
-						<SparklesIcon size="16px" />
-						Entrar na plataforma!
-					</Button>
-				</Link> */}
 				<Link href="/routines">
 					<RainbowButton>Conheça nossas rotinas</RainbowButton>
 				</Link>
