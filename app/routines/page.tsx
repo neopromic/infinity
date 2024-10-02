@@ -1,16 +1,10 @@
-"use client";
-
-import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
 import {
 	Accordion,
 	AccordionContent,
 	AccordionItem,
 	AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
 
 type WorkoutDay = {
 	day: string;
