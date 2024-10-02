@@ -4,18 +4,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { Badge } from "../ui/badge";
 import { RocketIcon, SparklesIcon } from "lucide-react";
-import { Button } from "../ui/button";
-import { useFirebaseAuth } from "@/utils/context/authContext";
 import { RainbowButton } from "../ui/rainbow-button";
 import GridPattern from "../ui/grid-pattern";
 import { cn } from "@/lib/utils";
 
 export const Hero = () => {
-	const { user } = useFirebaseAuth();
-
 	return (
 		<section className="flex flex-col justify-center items-center w-full h-[calc(100dvh-3rem)]">
-			<div className="flex flex-col justify-center items-center space-y-4 py-4">
+			<div className="flex flex-col justify-center items-center space-y-4 py-4 px">
 				<Badge className="gap-2 w-fit select-none">
 					<RocketIcon
 						size={16}
@@ -32,12 +28,6 @@ export const Hero = () => {
 				</p>
 			</div>
 			<div className="flex min-[400px]:flex-row flex-col gap-2">
-				{/* <Link href={user ? "/home" : "/auth/signin"}>
-					<Button className="gap-1">
-						<SparklesIcon size="16px" />
-						Entrar na plataforma!
-					</Button>
-				</Link> */}
 				<Link href="/routines">
 					<RainbowButton>Conheça nossas rotinas</RainbowButton>
 				</Link>
@@ -46,7 +36,7 @@ export const Hero = () => {
 				width={20}
 				height={20}
 				x={-1}
-				y={-1}
+				y={12}
 				className={cn(
 					"[mask-image:linear-gradient(to_bottom,white,transparent,transparent)] -z-50",
 				)}
