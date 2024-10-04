@@ -56,17 +56,6 @@ export default function ProfilePage() {
 					Gerencie suas informações de perfil em um só lugar, como seu peso,
 					idade, etc
 				</p>
-				<RainbowButton
-					onClick={() => {
-						writeUserData({
-							userId: userId,
-							email: userEmail,
-							name: userName,
-						});
-					}}
-				>
-					Criar
-				</RainbowButton>
 			</section>
 			<section className="px-4">
 				<h2 className="font-medium">Dados do usuário</h2>
