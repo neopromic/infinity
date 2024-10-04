@@ -1,18 +1,39 @@
 "use client";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Card } from "@/components/ui/card";
+import { RainbowButton } from "@/components/ui/rainbow-button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useFirebaseAuth } from "@/utils/context/authContext";
+import { writeUserData } from "@/services/database/utils/writeUserData";
+import { readUserData } from "@/services/database/utils/readUserData";
+import { useEffect, useState } from "react";
+import { auth } from "@/services/database/firebase";
 
 export default function ProfilePage() {
 	const { user } = useFirebaseAuth();
+	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+	const [userData, setUserData] = useState<any>(null);
+
 	if (!user) {
 		return;
 	}
 
 	const avatarAlt = `${user.displayName} Avatar's`;
 	const avatarURl = user?.photoURL as string;
+
+	const userId = user.uid;
+	const userName = user.displayName as string;
+	const userEmail = user.email as string;
+
+	// eslint-disable-next-line react-hooks/rules-of-hooks
+	useEffect(() => {
+		getUserData();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+	const getUserData = async () => {
+		const data = await readUserData(userId);
+		setUserData(data);
+	};
 
 	return (
 		<main>
@@ -35,6 +56,33 @@ export default function ProfilePage() {
 					Gerencie suas informações de perfil em um só lugar, como seu peso,
 					idade, etc
 				</p>
+				<RainbowButton
+					onClick={() => {
+						writeUserData({
+							userId: userId,
+							email: userEmail,
+							name: userName,
+						});
+					}}
+				>
+					Criar
+				</RainbowButton>
+			</section>
+			<section className="px-4">
+				<h2 className="font-medium">Dados do usuário</h2>
+				{userData ? (
+					<div className="flex flex-col">
+						<p>Nome: {userData.username}</p>
+						<p>
+							Email:{" "}
+							{auth.currentUser?.email === userData.email
+								? userData.email
+								: "Impossivel visualizar."}
+						</p>
+					</div>
+				) : (
+					<p>Carregando dados do usuário...</p>
+				)}
 			</section>
 		</main>
 	);
