@@ -1,8 +1,13 @@
 import { ref, set } from "firebase/database";
 import { database } from "@/services/database/firebase";
-import type { User } from "@/types/user";
 
-export function writeUserData({ userId, email, name }: User) {
+interface IUserData {
+	userId: string;
+	email: string;
+	name: string;
+}
+
+export function writeUserData({ userId, email, name }: IUserData) {
 	set(ref(database, `users/${userId}`), {
 		username: name,
 		email: email,
