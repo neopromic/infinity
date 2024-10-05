@@ -7,9 +7,14 @@ interface IUserData {
 	name: string;
 }
 
-export function writeUserData({ userId, email, name }: IUserData) {
-	set(ref(database, `users/${userId}`), {
-		username: name,
-		email: email,
-	});
+export async function writeUserData({ userId, email, name }: IUserData) {
+	try {
+		await set(ref(database, `users/${userId}`), {
+			username: name,
+			email: email,
+		});
+		console.log("Dados salvos com sucesso!");
+	} catch (e) {
+		console.error(`Erro ao gravar os dados no banco: ${e}`);
+	}
 }

@@ -6,6 +6,7 @@ import {
 } from "firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
 import Cookies from "js-cookie";
+import { writeUserData } from "@/services/database/utils/writeUserData";
 
 // biome-ignore lint/suspicious/noConfusingVoidType: <explanation>
 type User = IUser | null | void;
@@ -39,11 +40,25 @@ export const FirebaseAuthProvider = ({
 		});
 	};
 
-	const signUp = (email: string, password: string) => {
+	const signUp = async (email: string, password: string) => {
 		createUserWithEmailAndPassword(auth, email, password).then(
-			(userCredential) => {
+			async (userCredential) => {
 				const user = userCredential.user;
 				const userToken = user.getIdToken;
+
+				if (!user) {
+					return;
+				}
+
+				const userUID = user.uid;
+				const userEmail = user.email as string;
+				const userName = "John Doe";
+
+				await writeUserData({
+					userId: userUID,
+					email: userEmail,
+					name: userName,
+				});
 
 				Cookies.set("user", JSON.stringify(user));
 				Cookies.set("user_token", JSON.stringify(userToken));
