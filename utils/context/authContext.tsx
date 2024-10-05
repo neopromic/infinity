@@ -3,17 +3,20 @@ import {
 	type User as IUser,
 	signInWithEmailAndPassword,
 	createUserWithEmailAndPassword,
+	signInWithPopup,
+	type AuthProvider,
+	type UserCredential,
 } from "firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { writeUserData } from "@/services/database/utils/writeUserData";
 
-// biome-ignore lint/suspicious/noConfusingVoidType: <explanation>
-type User = IUser | null | void;
+type User = IUser | null;
 type ContextState = {
 	user: User;
-	login: (email: string, password: string) => void;
-	signUp: (email: string, password: string) => void;
+	login: (email: string, password: string) => Promise<void>;
+	signUp: (email: string, password: string) => Promise<void>;
+	signUpWithProvider: (provider: AuthProvider) => Promise<UserCredential>;
 	logout: () => void;
 };
 
@@ -21,35 +24,42 @@ const FirebaseAuthContext = createContext<ContextState | undefined>(undefined);
 
 export const FirebaseAuthProvider = ({
 	children,
-}: {
-	children: React.ReactNode;
-}) => {
+}: { children: React.ReactNode }) => {
 	const [user, setUser] = useState<User>(() => {
 		const userCookies = Cookies.get("user");
 		return userCookies ? JSON.parse(userCookies) : null;
 	});
 
-	const login = (email: string, password: string) => {
-		// TODO: create add cookie storage
-
-		signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
+	const login = async (email: string, password: string) => {
+		try {
+			const userCredential = await signInWithEmailAndPassword(
+				auth,
+				email,
+				password,
+			);
 			const user = userCredential.user;
-			const userToken = user.getIdToken;
-			Cookies.set("user", JSON.stringify(user));
-			Cookies.set("user_token", JSON.stringify(userToken));
-		});
+			const userToken = await user.getIdToken();
+
+			Cookies.set("user", JSON.stringify(user), { expires: 7 });
+			Cookies.set("user_token", userToken, { expires: 7 });
+
+			setUser(user);
+		} catch (error) {
+			console.error("Erro ao fazer login:", error);
+		}
 	};
 
 	const signUp = async (email: string, password: string) => {
-		createUserWithEmailAndPassword(auth, email, password).then(
-			async (userCredential) => {
-				const user = userCredential.user;
-				const userToken = user.getIdToken;
+		try {
+			const userCredential = await createUserWithEmailAndPassword(
+				auth,
+				email,
+				password,
+			);
+			const user = userCredential.user;
+			const userToken = await user.getIdToken();
 
-				if (!user) {
-					return;
-				}
-
+			if (user) {
 				const userUID = user.uid;
 				const userEmail = user.email as string;
 				const userName = "John Doe";
@@ -60,25 +70,67 @@ export const FirebaseAuthProvider = ({
 					name: userName,
 				});
 
-				Cookies.set("user", JSON.stringify(user));
-				Cookies.set("user_token", JSON.stringify(userToken));
-			},
-		);
+				Cookies.set("user", JSON.stringify(user), { expires: 7 });
+				Cookies.set("user_token", userToken, { expires: 7 });
+
+				setUser(user);
+			}
+		} catch (error) {
+			console.error("Erro ao criar conta:", error);
+		}
 	};
 
-	const logout = () => {
-		// TODO: create cookie remove and logout
+	const logout = async () => {
+		try {
+			await auth.signOut();
+			Cookies.remove("user");
+			Cookies.remove("user_token");
 
-		auth.signOut();
-
-		Cookies.remove("user");
-		Cookies.remove("user_token");
+			setUser(null);
+		} catch (error) {
+			console.error("Erro ao fazer logout:", error);
+		}
 	};
 
-	const value = { user, login, logout, signUp };
+	const signUpWithProvider = async (provider: AuthProvider) => {
+		try {
+			const result = await signInWithPopup(auth, provider);
+			const user = result.user;
+			const userToken = await user.getIdToken();
+
+			const userUID = user.uid;
+			const userEmail = user.email as string;
+			const userName = user.displayName || "John Doe";
+
+			await writeUserData({
+				userId: userUID,
+				email: userEmail,
+				name: userName,
+			});
+
+			Cookies.set("user", JSON.stringify(user), { expires: 7 });
+			Cookies.set("user_token", userToken, { expires: 7 });
+
+			setUser(user);
+
+			return result;
+		} catch (error) {
+			console.error("Erro ao autenticar com provedor:", error);
+			throw error; // Retornar o erro para que o frontend possa lidar
+		}
+	};
+
+	const value = { user, login, logout, signUp, signUpWithProvider };
 
 	useEffect(() => {
-		const unsubscribe = auth.onAuthStateChanged(setUser);
+		const unsubscribe = auth.onAuthStateChanged(async (user) => {
+			if (user) {
+				const userToken = await user.getIdToken();
+				Cookies.set("user", JSON.stringify(user), { expires: 7 });
+				Cookies.set("user_token", userToken, { expires: 7 });
+			}
+			setUser(user);
+		});
 		return unsubscribe;
 	}, []);
 
@@ -89,12 +141,7 @@ export const FirebaseAuthProvider = ({
 	);
 };
 
-/**
- * This hook is used to get the user data and manipulate then.
- * @returns auth hook
- * @example
- * const { user } = useFirebaseAuth();
- */
+// Hook para utilizar o contexto de autenticação
 export const useFirebaseAuth = () => {
 	const context = useContext(FirebaseAuthContext);
 
