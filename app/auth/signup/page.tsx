@@ -20,7 +20,7 @@ export default function Page() {
 	const [password, setPassword] = useState("");
 
 	const { toast } = useToast();
-	const { signUp } = useFirebaseAuth();
+	const { signUp, signUpWithProvider } = useFirebaseAuth();
 	const router = useRouter();
 
 	/**
@@ -58,22 +58,8 @@ export default function Page() {
 	const handleSignUpWithGoogle = async () => {
 		const provider = new GoogleAuthProvider();
 		try {
-			const result = await signInWithPopup(auth, provider); // Adiciona await
-
+			const result = await signUpWithProvider(provider);
 			const user = result.user;
-			const userToken = await user.getIdToken(); // Adiciona await
-
-			const userId = result.user.uid;
-			const userEmail = user.email as string;
-			const userName = user.displayName || "John Doe";
-
-			await writeUserData({ userId: userId, email: userEmail, name: userName });
-			Cookies.set("user", JSON.stringify(user), {
-				expires: 7,
-			});
-			Cookies.set("user_token", JSON.stringify(userToken), {
-				expires: 7,
-			});
 
 			toast({
 				title: "Welcome back!",
