@@ -2,9 +2,9 @@ import { ref, set } from "firebase/database";
 import { database } from "@/services/database/firebase";
 
 interface IUserData {
-	userId: string;
-	email: string;
-	name: string;
+	userId: string | null;
+	email: string | null;
+	name: string | null;
 }
 
 export async function writeUserData({ userId, email, name }: IUserData) {
