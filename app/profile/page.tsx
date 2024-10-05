@@ -8,14 +8,24 @@ import { writeUserData } from "@/services/database/utils/writeUserData";
 import { readUserData } from "@/services/database/utils/readUserData";
 import { useEffect, useState } from "react";
 import { auth } from "@/services/database/firebase";
+import { deleteUser } from "@/services/database/utils/deleteUser";
+import { Input } from "@/components/ui/input";
 
 export default function ProfilePage() {
 	const { user } = useFirebaseAuth();
+
+	const [pass, setPassword] = useState("");
+
 	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 	const [userData, setUserData] = useState<any>(null);
 
 	if (!user) {
-		return;
+		return (
+			<main className="flex justify-center">
+				<Skeleton className="rounded-full size-32" />
+				<Skeleton className="rounded-lg w-64 h-12" />
+			</main>
+		);
 	}
 
 	const avatarAlt = `${user.displayName} Avatar's`;
@@ -35,6 +45,15 @@ export default function ProfilePage() {
 		setUserData(data);
 	};
 
+	const logout = async () => {
+		try {
+			await auth.signOut();
+			console.info("Sucesso em sair da conta!");
+		} catch (e) {
+			console.error(e);
+		}
+	};
+
 	return (
 		<main>
 			<section className="flex flex-col items-center px-4 py-12">
@@ -44,18 +63,41 @@ export default function ProfilePage() {
 				</Avatar>
 				{user?.displayName ? (
 					<h1 className="font-bold text-3xl text-center sm:text-4xl md:text-5xl xl:text-6xl/none tracking-tighter">
-						Olá, {user?.displayName}!
+						Olá, {user.displayName}!
 					</h1> // Renderiza o nome se houver
 				) : (
 					<h1 className="flex items-center font-bold text-3xl text-center sm:text-4xl md:text-5xl xl:text-6xl/none tracking-tighter">
-						Olá,
-						<Skeleton className="rounded-lg w-64 h-12" />
+						{userData ? (
+							`Olá, ${userData.username}`
+						) : (
+							<Skeleton className="rounded-lg w-64 h-12" />
+						)}
 					</h1>
 				)}
 				<p>
 					Gerencie suas informações de perfil em um só lugar, como seu peso,
 					idade, etc
 				</p>
+
+				<Input
+					placeholder="senha"
+					onChange={(pass) => setPassword(pass.target.value)}
+				/>
+				<RainbowButton
+					onClick={async () => {
+						try {
+							await deleteUser(pass.trim());
+							console.info("sucesso");
+						} catch (e) {
+							console.error(`Não foi possível deletar a conta: ${e}`);
+						}
+					}}
+				>
+					Deletar conta
+				</RainbowButton>
+
+				<br />
+				<RainbowButton onClick={async () => await logout()}>Sair</RainbowButton>
 			</section>
 			<section className="px-4">
 				<h2 className="font-medium">Dados do usuário</h2>
@@ -66,7 +108,7 @@ export default function ProfilePage() {
 							Email:{" "}
 							{auth.currentUser?.email === userData.email
 								? userData.email
-								: "Impossivel visualizar."}
+								: "Houston, we have a problem."}
 						</p>
 					</div>
 				) : (
