@@ -87,7 +87,7 @@ export default function ProfilePage() {
 					onClick={async () => {
 						try {
 							await deleteUser(pass.trim());
-							console.info("sucesso");
+							console.log("Sucesso ao deletar usuário!");
 						} catch (e) {
 							console.error(`Não foi possível deletar a conta: ${e}`);
 						}
