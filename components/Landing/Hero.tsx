@@ -8,6 +8,7 @@ import { RainbowButton } from "../ui/rainbow-button";
 import GridPattern from "../ui/grid-pattern";
 import { cn } from "@/lib/utils";
 import { ArrowDown } from "@phosphor-icons/react";
+import { Button } from "../ui/button";
 
 export const Hero = () => {
 	return (
@@ -28,9 +29,12 @@ export const Hero = () => {
 					caminho certo e alcançar seus objetivos na calistenia.
 				</p>
 			</div>
-			<div className="flex min-[400px]:flex-row flex-col gap-2">
+			<div className="flex min-[400px]:flex-row flex-col items-center gap-2">
 				<Link href="/routines">
 					<RainbowButton>Conheça nossas rotinas</RainbowButton>
+				</Link>
+				<Link href="/auth/signup">
+					<Button variant={"outline"}>Cadastre-se em nossa plataforma</Button>
 				</Link>
 			</div>
 			<ArrowDown className="bottom-6 absolute text-primary animate-bounce" />
