@@ -12,7 +12,7 @@ import { deleteUser } from "@/services/database/utils/deleteUser";
 import { Input } from "@/components/ui/input";
 
 export default function ProfilePage() {
-	const { user } = useFirebaseAuth();
+	const { user, logout } = useFirebaseAuth();
 
 	const [pass, setPassword] = useState("");
 
@@ -43,15 +43,6 @@ export default function ProfilePage() {
 	const getUserData = async () => {
 		const data = await readUserData(userId);
 		setUserData(data);
-	};
-
-	const logout = async () => {
-		try {
-			await auth.signOut();
-			console.info("Sucesso em sair da conta!");
-		} catch (e) {
-			console.error(e);
-		}
 	};
 
 	return (
