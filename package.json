@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@biomejs/biome": "^1.9.3",
     "@hookform/resolvers": "^3.9.0",
     "@nivo/line": "^0.86.0",
     "@phosphor-icons/react": "^2.1.7",
