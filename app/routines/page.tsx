@@ -81,13 +81,14 @@ export default function WorkoutRoutines() {
         <h1 className="mb-4 font-bold text-3xl sm:text-4xl md:text-5xl xl:text-6xl/none tracking-tighter">
           Rotinas gerais
         </h1>
-        <Badge className="mb-4">
-          Lembre-se de descansar 3 minutos (no mínimo), entre séries.
-        </Badge>
-        <p className="mb-6 text-lg">
+
+        <p className="mb-4 text-lg">
           Inicie cada dia com alongamentos de todo o corpo, seguidos por 2
           minutos de prancha (ajuste conforme suas capacidades físicas).
         </p>
+        <Badge className="mb-4">
+          Lembre-se de descansar 3 minutos (no mínimo), entre séries.
+        </Badge>
         <Accordion type="single" collapsible className="w-full">
           {workoutRoutine.map((day, index) => (
             // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
