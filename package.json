@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth/firebase-adapter": "^2.7.2",
     "@biomejs/biome": "^1.9.4",
     "@hookform/resolvers": "^3.9.0",
     "@nivo/line": "^0.86.0",
