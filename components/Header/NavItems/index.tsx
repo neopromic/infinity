@@ -1,6 +1,6 @@
 'use client'
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import Avatar from '@/components/ui/avatar'
 import { ModeToggle } from '@/components/ui/mode-toggle'
 import { useFirebaseAuth } from '@/utils/context/authContext'
 import Link from 'next/link'
@@ -19,12 +19,9 @@ export const NavItems = () => {
   return (
     <nav className="flex items-center gap-2">
       <Link href="/profile">
-        <Avatar>
-          <AvatarImage src={avatarURl} />
-          <AvatarFallback className="p-4 text-xs">
-            {user.displayName}
-          </AvatarFallback>
-        </Avatar>
+        
+        <Avatar src={avatarURl} fallback={user.displayName as string} />
+
       </Link>
       <ModeToggle />
     </nav>

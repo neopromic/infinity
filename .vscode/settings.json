@@ -10,5 +10,8 @@
     "sonner",
     "supabase",
     "vaul"
-  ]
+  ],
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
