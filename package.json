@@ -69,17 +69,17 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.16",
     "@tailwindcss/typography": "^0.5.15",
     "@types/js-cookie": "^3.0.6",
     "@types/node": "^20.17.1",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
-    "autoprefixer": "^10.4.20",
     "eslint": "^9",
     "eslint-config-next": "16.0.1",
     "js-cookie": "^3.0.5",
     "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.14",
+    "tailwindcss": "^4.1.16",
     "typescript": "^5.6.3"
   },
   "pnpm": {

@@ -44,7 +44,7 @@ export const Hero = () => {
 				x={-1}
 				y={12}
 				className={cn(
-					"[mask-image:linear-gradient(to_bottom,white,transparent,transparent)] -z-50",
+					"mask-[linear-gradient(to_bottom,white,transparent,transparent)] -z-50",
 				)}
 			/>
 		</section>
