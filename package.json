@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint ."
   },
+  "packageManager": "pnpm@10.18.3",
   "dependencies": {
     "@auth/firebase-adapter": "^2.7.2",
     "@biomejs/biome": "^1.9.4",
